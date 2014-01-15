@@ -1,0 +1,11 @@
+<%= form_for [@restaurant, @location] do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <br>
+  <%= form.label :takeaway %>
+  <%= form.text_area :takeaway %>
+
+  <br>
+  <%= form.submit 'Submit' %>
+<% end %>
