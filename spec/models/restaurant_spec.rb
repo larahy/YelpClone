@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe '.average_rating' do
 
-  let(:restaurant) { Restaurant.new(name: 'KFC') }
+  let(:restaurant) { create(:restaurant) }
 
   context 'no ratings' do 
 
