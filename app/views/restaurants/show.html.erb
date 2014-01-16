@@ -1,14 +1,23 @@
 <%= link_to 'HOME', restaurants_path %>
-<h1><%= @restaurant.name %></h1>
-<p><%= @restaurant.description %></p>
-<p><%= @restaurant.average_rating %></p>
-<%= link_to 'Add review', new_restaurant_review_path(@restaurant) %>
-<%= link_to 'Add location', new_restaurant_location_path(@restaurant) %>
-
-<h3> Current reviews</h3> 
-<% @reviews.each do |review| %>
-<p><%= review.content %></p>
-<% end %> 
+<div class='row'>
+<div class='col-md-12'>
+  <h1><%= @restaurant.name %></h1>
+  <p><%= @restaurant.description %></p>
+</div>
+</div> 
+<div class='row'>
+  <h3> Current reviews</h3> 
+  <% @restaurant.reviews.each do |review| %>
+  <div class='col-sm-6 alert <%= review_color(review) %>'>
+  <p><%= review.content %> - <% star_rating review %></p>
+  </div>
+  <% end %>
+</div>
+<div class='row'>
+<div class='col-md-12'>
+  <h4> <%= link_to 'Add review', new_restaurant_review_path(@restaurant) %></h4>
+  <h4> <%= link_to 'Add location', new_restaurant_location_path(@restaurant) %></h4>
+</div>
 
 <h3> Current locations</h3>
 <% @locations.each do |location| %>

@@ -5,10 +5,18 @@
 <p>No restaurants yet!</p>
 <% end %> 
 <% @restaurants.each do |restaurant| %>
-  <h1><%= link_to restaurant.name, restaurant %></h1>
-  <p><%= truncate restaurant.description, length:100 %></p>
-  <p>Rating: <%= restaurant.average_rating %></p>
-  <%= link_to 'Edit information', edit_restaurant_path(restaurant) %>
-  <%= link_to 'Delete restaurant', restaurant_path(restaurant), method: :delete, data: { confirm: 'Really?'} %>
+<div class='row constrained-row'>
+  <div class='col-md-4 restaurant-image'>
+    <%= image_tag restaurant.image_url %>
+  </div>
+  <div class="col-md-8">
+    <h1><%= link_to restaurant.name, restaurant %></h1>
+    <p><%= truncate restaurant.description, length:100 %></p>
+    <p>Rating: <%= star_rating restaurant %></p>
+    <%= link_to 'Edit information', edit_restaurant_path(restaurant) %>
+    <%= link_to 'Delete restaurant', restaurant_path(restaurant), method: :delete, data: { confirm: 'Really?'} %>
+  </div>
+</div>
 <% end %>
+
 <h3><%= link_to 'Add a restaurant', new_restaurant_path %></h3>

@@ -5,8 +5,9 @@ class Restaurant < ActiveRecord::Base
   validates :description, presence: true, length: { minimum: 5}
 
   def average_rating
-    return 'unrated' if reviews.none?
-    total = reviews.inject(0) {|sum, review| sum += review.rating }
-    total/reviews.length
+    reviews.average('rating') || 'Unrated'
   end
+
+  alias_method :rating, :average_rating 
+  
 end
