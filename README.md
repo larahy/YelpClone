@@ -1,4 +1,6 @@
-== README
+YELP CLONE -- Week 8 Challenge -- set by @alexpeattie
+
+======================
 
 * Ruby version 2.0.0
 
